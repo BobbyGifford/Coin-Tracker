@@ -9,6 +9,8 @@ import {
 } from 'semantic-ui-react';
 import axios from 'axios';
 
+import Percentchanges from './Percentchanges';
+
 class Cointlist extends Component {
   async componentDidMount() {
     const results = await axios.get(
@@ -33,10 +35,13 @@ class Cointlist extends Component {
               </Header.Content>
             </Header>
             <Segment textAlign="center" inverted>
-              {coin.symbol} - ${coin.quotes.USD.price}
+              {coin.symbol} - <i className="dollar sign icon" />
+              {coin.quotes.USD.price}
+              <Divider />
+              <Header size="medium">Recent Changes</Header>
+              <Percentchanges quotes={coin.quotes.USD} />
             </Segment>
           </div>
-
           <Divider />
         </div>
       );
