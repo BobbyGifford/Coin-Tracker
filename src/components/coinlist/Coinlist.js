@@ -50,7 +50,7 @@ class Cointlist extends Component {
             </Header>
             <Segment textAlign="center" inverted>
               {coin.symbol} - <i className="dollar sign icon" />
-              {coin.quotes.USD.price}
+              {coin.quotes.USD.price.toFixed(2)}
               <Divider />
               <Percentchanges quotes={coin.quotes.USD} />
             </Segment>
